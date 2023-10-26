@@ -28,15 +28,16 @@ body{
     margin: 3vh 0;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: repeat(2, minmax(40px,auto));
+    grid-template-rows: repeat(2, minmax(40px, auto));
     word-wrap: break-word;
-    border-bottom: 1px rgba(128, 128, 128, 0.116)solid;
+    border-bottom: 1px rgba(128, 128, 128, 0.116) solid;
 }
 
 #Dispaly-area .currentInput{
+   /* display: flex;  */
     text-align: right;
     height: 8vh;
-    color: #ffffff;
+    color: white;
     font-size: xx-large;
     line-height: 2;
     word-wrap: break-word;
@@ -53,7 +54,7 @@ body{
 
 .keypad-btns{
     display: grid;
-    grid: repeat(5,90px) / repeat(4,130px);
+    grid: repeat(5, 90px) / repeat(4, 130px);
     grid-row-gap: 20px;
     grid-column-gap: 20px;
 
