@@ -7,7 +7,7 @@ let clearbtn =  document.querySelector('#clear');
 let evaluate =  document.querySelector('#evaluate');
 let realTimeScreenValue = []
 
-clearbtn.addEventListener("click", [] => {
+clearbtn.addEventListener("click", () => {
     realTimeScreenValue = [''];
     answerScreen.innerHTML = 0;
     currentInput.className = 'currentInput'
@@ -16,7 +16,7 @@ clearbtn.addEventListener("click", [] => {
 
 })
 
-button.forEach((btn) => {
+ button.forEach((btn) => {
     //when clicked button is not erased
     if (!btn.id.match('erase')) {
         //to display value of button
@@ -37,5 +37,24 @@ button.forEach((btn) => {
         }
     }
 
+    //Erase button
+    if (btn.id.match('erase')) {
+        realTimeScreenValue.pop();
+        currentInput.innerHTML = realTimeScreenValue.join('');
+        answerScreen.innerHTML = evalrealTimeScreenValue.join();
     
-})
+    }
+
+    //Evaluate Button
+    if (btn.id.match('evaluate')) {
+        currentInput.className = 'answerScreen';
+        answerScreen.className = 'currentInput';
+        answerScreen.style.color = "white";
+    }
+
+    //Prevent undefiened errors
+    if (typeof eval(realTimeScreenValue.join('')) == 'undefined') {
+        answerScreen.innerHTML = 0
+    }
+ })
+
