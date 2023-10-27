@@ -13,12 +13,12 @@ clearbtn.addEventListener("click", () => {
     currentInput.className = 'currentInput'
     answerScreen.className = 'answerScreen';
     answerScreen.style.color =" rgba(150, 150, 150, 0.87)";
-
 })
 
  button.forEach((btn) => {
-    //when clicked button is not erased
-    if (!btn.id.match('erase')) {
+    btn.addEventListener("click", () => {
+     //when clicked button is not erased
+     if (!btn.id.match('erase')) {
         //to display value of button
         realTimeScreenValue.push(btn.value)
         console.log(realTimeScreenValue)
@@ -35,26 +35,26 @@ clearbtn.addEventListener("click", () => {
                 answerScreen.innerHTML = eval(realTimeScreenValue.join(''));
             }
         }
-    }
+     }
 
-    //Erase button
-    if (btn.id.match('erase')) {
+     //Erase button
+     if (btn.id.match('erase')) {
         realTimeScreenValue.pop();
         currentInput.innerHTML = realTimeScreenValue.join('');
         answerScreen.innerHTML = evalrealTimeScreenValue.join();
-    
-    }
+     }
 
-    //Evaluate Button
-    if (btn.id.match('evaluate')) {
+     //Evaluate Button
+     if (btn.id.match('evaluate')) {
         currentInput.className = 'answerScreen';
         answerScreen.className = 'currentInput';
         answerScreen.style.color = "white";
-    }
+     }
 
-    //Prevent undefiened errors
-    if (typeof eval(realTimeScreenValue.join('')) == 'undefined') {
+     //Prevent undefiened errors
+     if (typeof eval(realTimeScreenValue.join('')) == 'undefined') {
         answerScreen.innerHTML = 0
-    }
+     }
+    })
  })
 
